@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mohammad Rashvand Haranaki — Front‑End Developer</title>
+  <meta name="description" content="Front-End Developer — JavaScript, PHP, HTML, CSS, SQL, SEO, UI/UX, API design. Portfolio of Mohammad Rashvand Haranaki.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <style>
+    /* --------------------
+       Base / Variables
+       -------------------- */
+    :root{
+      --bg:#0b0f12; --surface:#0f1518; --muted:#98a0a6; --accent:#7c5cff; --glass:rgba(255,255,255,0.04);
+      --card:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --radius:14px; --gap:24px; --maxw:1100px; --glass-border:rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;padding:32px;background:radial-gradient(1000px 600px at 10% 10%, rgba(124,92,255,0.08), transparent 8%),
+      radial-gradient(800px 500px at 90% 90%, rgba(0,200,255,0.02), transparent 12%), var(--bg);
+      color:#e6eef3;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.45
+    }
+    a{color:inherit}
+    .container{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:var(--gap);align-items:start}
+
+    /* --------------------
+       Header / Hero
+       -------------------- */
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#00d2ff);display:grid;place-items:center;font-weight:700;color:#071018;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+    nav{display:flex;gap:12px}
+    .btn{padding:9px 12px;border-radius:10px;background:transparent;border:1px solid var(--glass-border);font-size:14px;color:var(--muted);cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#00d2ff);color:#071018;border:none;box-shadow:0 8px 30px rgba(124,92,255,0.12)}
+
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:18px;border:1px solid var(--glass-border);display:flex;gap:24px;align-items:center}
+    .hero-left{flex:1}
+    .hero h2{margin:0;font-size:26px}
+    .hero p{color:var(--muted);margin-top:8px}
+    .cta{margin-top:18px;display:flex;gap:12px}
+
+    /* --------------------
+       Sidebar
+       -------------------- */
+    aside{position:sticky;top:32px}
+    .card{background:var(--surface);padding:18px;border-radius:14px;border:1px solid var(--glass-border);backdrop-filter:blur(6px)}
+    .profile{display:flex;gap:14px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,#1f2430,#101214);display:grid;place-items:center;font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .skill{padding:8px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border);font-size:13px}
+
+    /* --------------------
+       Projects
+       -------------------- */
+    .projects{margin-top:var(--gap);display:grid;gap:16px}
+    .project{display:flex;flex-direction:column;padding:16px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease, box-shadow .28s ease}
+    .project:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .project h3{margin:0 0 6px 0}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .project a{margin-top:10px;color:var(--accent);font-weight:600;text-decoration:none}
+
+    /* --------------------
+       Contact / Footer
+       -------------------- */
+    .contact{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+    .socials{display:flex;gap:8px;flex-wrap:wrap}
+    .icon{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--glass);border:1px solid var(--glass-border);cursor:pointer}
+
+    footer{margin-top:24px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* --------------------
+       Responsiveness
+       -------------------- */
+    @media (max-width:980px){.container{grid-template-columns:1fr;}}
+    @media (max-width:520px){body{padding:18px}.hero{flex-direction:column;align-items:flex-start}.logo{width:48px;height:48px}.brand h1{font-size:16px}}
+
+    /* --------------------
+       Subtle animations
+       -------------------- */
+    .fade-up{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+    .in-view{opacity:1;transform:none}
+    .glow{filter:drop-shadow(0 8px 32px rgba(124,92,255,0.16))}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <header>
+        <div class="brand">
+          <div class="logo">MR</div>
+          <div>
+            <h1>Mohammad Rashvand Haranaki</h1>
+            <p class="small">Front‑End Developer — JavaScript · PHP · HTML · CSS · SQL · UI/UX</p>
+          </div>
+        </div>
+        <nav>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#skills">Skills</a>
+          <a class="btn btn-primary" href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero card fade-up" id="hero">
+        <div class="hero-left">
+          <h2>Hi — I'm Mohammad. I build modern, fast and user-centered web experiences.</h2>
+          <p>I’m a Front‑End Developer passionate about creating seamless, user‑centered digital experiences. I combine design thinking with technical precision to craft solutions that look great, perform fast, and truly connect with users.</p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Hire / Contact</a>
+            <a class="btn" href="#projects">See Projects</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:14px">
+            <strong>Specialties:</strong> JavaScript · PHP · HTML · CSS · SQL · SEO · UI/UX · API design
+          </div>
+        </div>
+        <div style="width:220px;display:flex;flex-direction:column;gap:12px;align-items:center">
+          <div style="width:200px;height:200px;border-radius:18px;background:linear-gradient(135deg,#121318,#0b0f12);border:1px solid var(--glass-border);display:grid;place-items:center;font-size:42px;font-weight:700">MR</div>
+          <div style="text-align:center;color:var(--muted);font-size:13px">Modern, responsive and performance‑focused interfaces.</div>
+        </div>
+      </section>
+
+      <section id="projects" style="margin-top:22px">
+        <h2 style="margin:0 0 12px 0">Selected Projects</h2>
+        <div class="projects">
+          <article class="project fade-up">
+            <h3>Inova Energy</h3>
+            <p>A corporate website for an energy company with responsive layouts and SEO optimizations.</p>
+            <a href="https://inovaenergy.ir" target="_blank" rel="noopener">inovaenergy.ir →</a>
+          </article>
+
+          <article class="project fade-up">
+            <h3>Pavidco</h3>
+            <p>Business website showcasing services and projects with clear CTAs and fast performance.</p>
+            <a href="https://pavidco.com" target="_blank" rel="noopener">pavidco.com →</a>
+          </article>
+
+          <article class="project fade-up">
+            <h3>IranMedTour</h3>
+            <p>Medical tourism platform with information architecture optimized for conversions and SEO.</p>
+            <a href="https://iranmedtour.com" target="_blank" rel="noopener">iranmedtour.com →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" style="margin-top:28px">
+        <h2 style="margin:0 0 12px 0">Skills & Expertise</h2>
+        <div class="card" style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <strong>Core:</strong> JavaScript, HTML, CSS, PHP, SQL
+          </div>
+          <div>
+            <strong>Design & UX:</strong> UI/UX, Accessibility, Responsive Layouts, Interaction Design
+          </div>
+          <div>
+            <strong>Performance & SEO:</strong> Critical CSS, Lazy loading, Semantic HTML, Structured Data
+          </div>
+          <div>
+            <strong>APIs & Integrations:</strong> REST API design, third‑party integrations, webhooks
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:28px">
+        <h2 style="margin:0 0 12px 0">Case Study — performance uplift</h2>
+        <div class="card fade-up">
+          <p class="small">On a recent dashboard project I reduced page response from ~2.5s to &lt;150ms by removing polling, optimizing assets and leveraging real‑time updates via WebSocket (PHP backend) and careful client‑side rendering.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <aside>
+      <div class="card profile fade-up">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="avatar">MR</div>
+            <div>
+              <div style="font-weight:700">Mohammad Rashvand Haranaki</div>
+              <div class="small">Front‑End Developer</div>
+            </div>
+          </div>
+          <div class="small">Based in Iran</div>
+        </div>
+
+        <div class="skill-list" style="margin-top:14px">
+          <div class="skill">JavaScript</div>
+          <div class="skill">PHP</div>
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">SQL</div>
+          <div class="skill">SEO</div>
+          <div class="skill">UI/UX</div>
+        </div>
+
+        <div style="margin-top:12px" class="small">A developer who values performance, clarity and delightful UX.</div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3 style="margin:0 0 10px 0">Contact</h3>
+        <div class="contact">
+          <a class="small" href="mailto:Mohammad@rashvand.me">Mohammad@rashvand.me</a>
+          <a class="small" href="https://t.me/onefullstack" target="_blank">Telegram: @onefullstack</a>
+          <a class="small" href="https://github.com/mohammadrashvandh" target="_blank">GitHub: mohammadrashvandh</a>
+          <a class="small" href="https://www.linkedin.com/in/mohammad-rashvand/" target="_blank">LinkedIn</a>
+          <a class="small" href="https://wa.me/9809010203051" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3 style="margin:0 0 10px 0">Quick CV</h3>
+        <div class="small">Front‑End Developer with strong skills in JavaScript, PHP, HTML, CSS, SQL, SEO and UI/UX. Focus on responsive, accessible and high‑performance websites.</div>
+      </div>
+
+      <footer class="small" style="margin-top:12px">© Mohammad Rashvand Haranaki • Built with ❤️ — GitHub Pages ready</footer>
+    </aside>
+  </div>
+
+  <script>
+    // Simple reveal-on-scroll for subtle animations
+    (function(){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+      },{threshold:0.12});
+      document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          e.preventDefault(); const id = a.getAttribute('href').slice(1);
+          if(!id) return window.scrollTo({top:0,behavior:'smooth'});
+          const el = document.getElementById(id);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        });
+      });
+
+      // Small accessibility: focus visible styles on keyboard navigation
+      window.addEventListener('keydown',(e)=>{ if(e.key === 'Tab') document.body.classList.add('show-focus'); });
+    })();
+  </script>
+</body>
+</html>
